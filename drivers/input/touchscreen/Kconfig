@@ -1456,6 +1456,11 @@ config TOUCHSCREEN_FT5336
 	bool "FOCALTECH touchpanel FT5336 series"
 	depends on I2C
 
+config TOUCHSCREEN_DOUBLETAP2WAKE
+	bool "DoubleTap2Wake for touchscreens"
+	depends on TOUCHSCREEN_FT5336
+	default n
+	
 source "drivers/input/touchscreen/ft5336/Kconfig"
 
 endif
