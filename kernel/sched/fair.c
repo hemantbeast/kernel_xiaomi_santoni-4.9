@@ -12152,9 +12152,6 @@ static void walt_check_for_rotation(struct rq *src_rq)
 	if (!walt_rotation_enabled)
 		return;
 
-	if (got_boost_kick())
-		return;
-
 	if (is_max_capacity_cpu(src_cpu))
 		return;
 
