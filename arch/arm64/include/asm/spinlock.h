@@ -38,4 +38,13 @@
  */
 #define vcpu_is_preempted(cpu)	false
 
+/*
+ * Changing this will break osq_lock() thanks to the call inside
+ * smp_cond_load_relaxed().
+ *
+ * See:
+ * https://lore.kernel.org/lkml/20200110100612.GC2827@hirez.programming.kicks-ass.net
+ */
+#define vcpu_is_preempted(cpu)	false
+
 #endif /* __ASM_SPINLOCK_H */
