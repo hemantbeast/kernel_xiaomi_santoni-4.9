@@ -2130,6 +2130,10 @@ static int fastrpc_internal_invoke(struct fastrpc_file *fl, uint32_t mode,
 	if (err)
 		goto bail;
  bail:
+	if (ctx->handle) {
+		glink_rx_done(ctx->handle, ctx->ptr, true);
+		ctx->handle = NULL;
+	}
 	if (ctx && interrupted == -ERESTARTSYS)
 		context_save_interrupted(ctx);
 	else if (ctx)
