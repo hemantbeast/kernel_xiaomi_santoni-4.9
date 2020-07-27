@@ -275,7 +275,7 @@ struct rq *task_rq_lock(struct task_struct *p, struct rq_flags *rf)
 	}
 }
 
-#ifdef CONFIG_SCHED_HRTICK
+#ifdef CONFIG_HIGH_RES_TIMERS
 /*
  * Use HR-timers to deliver accurate preemption points.
  */
@@ -385,7 +385,7 @@ static void init_rq_hrtick(struct rq *rq)
 	hrtimer_init(&rq->hrtick_timer, CLOCK_MONOTONIC, HRTIMER_MODE_REL);
 	rq->hrtick_timer.function = hrtick;
 }
-#else	/* CONFIG_SCHED_HRTICK */
+#else	/* CONFIG_HIGH_RES_TIMERS */
 static inline void hrtick_clear(struct rq *rq)
 {
 }
@@ -393,7 +393,7 @@ static inline void hrtick_clear(struct rq *rq)
 static inline void init_rq_hrtick(struct rq *rq)
 {
 }
-#endif	/* CONFIG_SCHED_HRTICK */
+#endif	/* CONFIG_HIGH_RES_TIMERS */
 
 /*
  * cmpxchg based fetch_or, macro so it works for different integer types
