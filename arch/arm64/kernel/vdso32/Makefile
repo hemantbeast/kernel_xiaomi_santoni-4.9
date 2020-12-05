@@ -92,10 +92,6 @@ ifeq ($(cc-name),clang)
 VDSO_CFLAGS += $(call cc32-disable-warning, vectorizer-no-neon)
 endif
 
-ifdef CONFIG_ARCH_MSM8937
-VDSO_CFLAGS += -mcpu=cortex-a53 -Wa,-mcpu=cortex-a53 -mtune=cortex-a53
-endif
-
 VDSO_AFLAGS := $(VDSO_CAFLAGS)
 VDSO_AFLAGS += -D__ASSEMBLY__
 
