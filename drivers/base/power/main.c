@@ -591,7 +591,6 @@ void dpm_resume_noirq(pm_message_t state)
 	dpm_show_time(starttime, state, "noirq");
 	resume_device_irqs();
 	device_wakeup_disarm_wake_irqs();
-	trace_suspend_resume(TPS("dpm_resume_noirq"), state.event, false);
 }
 
 /**
