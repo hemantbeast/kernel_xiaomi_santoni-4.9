@@ -57,9 +57,8 @@
 			};
 			vendor {
 				dev = "/dev/block/platform/soc/7824900.sdhci/by-name/cust";
-                                fsmgr_flags = "wait";
-				type = "squashfs";
-                                status = "disabled";
+                fsmgr_flags = "wait";
+                status = "disabled";
 			};
 		};
 	};
